@@ -1,0 +1,106 @@
+/* Resetting default margins and enabling smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121214; /* Dark sleek background */
+    color: #ffffff;
+}
+
+/* Navbar Design */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(18, 18, 20, 0.8);
+    backdrop-filter: blur(10px); /* Makes it look modern/glassy */
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff94b3; /* Nice soft pink accent color */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 25px;
+}
+
+.navbar ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ffffff; /* Highlights white when hovered */
+}
+
+/* Section Setup (Each section acts like a 'page') */
+.page-section {
+    min-height: 100vh; /* Forces each section to take up the full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px box-sizing;
+    text-align: center;
+}
+
+/* Alternating background colors slightly for depth */
+#about { background-color: #121214; }
+#hobbies { background-color: #1a1a1e; }
+#future { background-color: #121214; }
+
+/* Profile Card styling for Page 1 */
+.profile-card {
+    background: #1e1e24;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 400px;
+}
+
+.profile-pic {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ff94b3;
+}
+
+.tag {
+    color: #a0a0a0;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+p, li {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+ul {
+    text-align: left;
+}

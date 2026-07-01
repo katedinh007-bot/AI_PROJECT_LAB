@@ -88,3 +88,47 @@ tabs.forEach(tab => {
         }, 350);
     });
 });
+
+// ==========================================================================
+// 4. PLANET LIGHTBOX POPUP MODAL ENGINE
+// ==========================================================================
+const modal = document.getElementById('planet-modal');
+const modalImg = document.getElementById('modal-image');
+const modalTitle = document.getElementById('modal-title');
+const closeBtn = document.getElementById('modal-close-btn');
+
+// Trigger open state when clicking the main active dashboard planet picture
+if (planetImg && modal) {
+    planetImg.addEventListener('click', () => {
+        // Sync the current image source paths and header text fields dynamically
+        modalImg.src = planetImg.src;
+        modalImg.alt = planetImg.alt;
+        modalTitle.textContent = planetNameTag.textContent;
+
+        // Display overlay and fade it in smoothly
+        modal.classList.add('modal-show');
+    });
+}
+
+// Trigger close state when clicking the "X" button
+if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('modal-show');
+        
+        // Brief timeout reset to prevent image layout stuttering while fading out
+        setTimeout(() => {
+            if (!modal.classList.contains('modal-show')) {
+                modal.style.display = 'none';
+            }
+        }, 400);
+    });
+}
+
+// Extra Feature: Close the modal automatically if the user clicks anywhere outside the image
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('modal-show');
+        }
+    });
+}
