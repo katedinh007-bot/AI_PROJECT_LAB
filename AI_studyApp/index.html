@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study App</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Theme Toggle Button (Stays visible across pages) -->
+    <button id="theme-toggle" class="theme-btn">Switch to Light Theme</button>
+
+    <!-- ==========================================
+       1. LOGIN PAGE SECTION
+       ========================================== -->
+    <section id="login-page" class="page-section active">
+        <div class="login-container">
+            <!-- Cute Ghost Logo from assets folder -->
+            <img src="assets/logo.png" alt="Agent Alex Logo" class="login-logo">
+            
+            <h2>Login</h2>
+            <p class="subtitle">Welcome back please login to your account</p>
+            
+            <form id="login-form">
+                <!-- Username Input Group -->
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="User Name" required>
+                    <span class="input-icon">👤</span>
+                </div>
+                
+                <!-- Password Input Group -->
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <!-- Clickable Eye Toggle Button -->
+                    <button type="button" id="toggle-password-btn" class="input-icon-btn">👁️</button>
+                </div>
+                
+                <!-- Remember Me Checkbox -->
+                <div class="remember-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span class="custom-checkbox"></span>
+                        Remember me
+                    </label>
+                </div>
+                
+                <!-- Main Login Button -->
+                <button type="submit" class="login-submit-btn">Login</button>
+
+                <!-- Visual Divider -->
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+
+                <!-- Google Sign-In Button -->
+                <button type="button" id="google-signin-btn" class="google-login-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" width="18">
+                    Sign in with Google
+                </button>
+            </form>
+            
+            <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Signup</a></p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       2. MAIN APP PAGE SECTION (Hidden by default)
+       ========================================== -->
+    <section id="main-page" class="page-section hidden">
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <div class="logo-wrapper" id="nav-to-main">
+                <!-- Header Logo from assets folder -->
+                <img src="assets/logo.png" alt="Logo" class="header-logo">
+                <h1 class="logo-title">AI Study App</h1>
+            </div>
+            <nav class="nav-links">
+                <span class="nav-item active" id="nav-chat">Study Chat</span>
+                <span class="nav-item" id="nav-history">History</span>
+                <button id="signout-btn" class="signout-btn">Sign Out</button>
+            </nav>
+        </header>
+
+        <!-- Main App Container -->
+        <main class="app-content">
+            <!-- Agent Alex Chat Screen -->
+            <div class="chat-container">
+                <div class="agent-profile">
+                    <!-- Agent Avatar Logo from assets folder -->
+                    <img src="assets/logo.png" alt="Agent Alex" class="agent-avatar-img">
+                    <h3>Agent Alex</h3>
+                    <p>Your step-by-step study buddy</p>
+                </div>
+
+                <!-- Chat Messages Box -->
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message agent-msg">
+                        Hi! I'm Agent Alex. What subject or homework problem are we tackling today? Let's figure it out step-by-step!
+                    </div>
+                </div>
+
+                <!-- Chat Input Form -->
+                <form id="chat-form" class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Ask Alex a question..." required>
+                    <button type="submit" id="send-btn">Send</button>
+                </form>
+            </div>
+        </main>
+    </section>
+
+    <!-- Core entry script loaded as a Module -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+/* ==========================================
+   1. THEME DEFINITIONS (CSS Variables)
+   ========================================== */
+:root {
+    --bg-color: #0d1117;          
+    --container-bg: #161b22;      
+    --accent-blue: #58a6ff;       
+    --accent-pink: #ff79c6;       
+    --text-main: #f0f6fc;         
+    --text-muted: #8b949e;        
+}
+
+[data-theme="light"] {
+    --bg-color: #f5ebe0;          
+    --container-bg: #e3d5ca;      
+    --accent-blue: #d4a373;       
+    --accent-pink: #ffb5a7;       
+    --text-main: #4a3728;         
+    --text-muted: #7f6a5b;        
+}
+
+/* ==========================================
+   2. GENERAL STYLES & STRUCTURAL LAYOUT
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.page-section {
+    width: 100%;
+    max-width: 480px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-pink);
+    color: #1f1f1f;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* ==========================================
+   3. LOGO STYLING DEFINITIONS
+   ========================================== */
+.login-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 50%;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.header-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.agent-avatar-img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    margin: 10px auto;
+    display: block;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 12px var(--accent-blue));
+}
+
+/* ==========================================
+   4. LOGIN PAGE STYLING
+   ========================================== */
+.login-container {
+    background-color: var(--container-bg);
+    padding: 35px 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.login-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.login-container .subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 45px 14px 20px;
+    background: transparent;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 14px;
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-blue);
+}
+
+.input-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+/* Clickable Interactive Eye toggle item */
+.input-icon-btn {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.remember-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-left: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.login-submit-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .login-divider::before,
+[data-theme="light"] .login-divider::after {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.login-divider span {
+    padding: 0 10px;
+}
+
+.google-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border: 1px solid #dcdcdc;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.google-login-btn:hover {
+    background-color: #f7f7f7;
+    transform: scale(1.02);
+}
+
+.signup-text {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.signup-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link:hover {
+    color: var(--accent-pink);
+}
+
+/* ==========================================
+   5. MAIN APP / CHAT INTERFACE
+   ========================================== */
+.app-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--container-bg);
+}
+
+.logo-title {
+    color: var(--accent-pink);
+    font-size: 1.4rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-item {
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.nav-item.active {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+.signout-btn {
+    background: transparent;
+    color: var(--accent-pink);
+    border: 1px solid var(--accent-pink);
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.chat-container {
+    background-color: var(--container-bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.agent-profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chat-messages {
+    height: 250px;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 85%;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.agent-msg {
+    background-color: rgba(88, 166, 255, 0.15);
+    color: var(--text-main);
+    border-left: 4px solid var(--accent-blue);
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--text-muted);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    outline: none;
+}
+
+.chat-input-area button {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
